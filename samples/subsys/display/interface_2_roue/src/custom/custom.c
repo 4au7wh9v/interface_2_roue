@@ -37,6 +37,7 @@
 static int32_t speed = 0;
 static bool is_increase = true;
 
+extern lv_ui guider_ui;
 static int16_t spd_chart[CHART1_POINTS] = {0};
 static bool is_up = true;
 /**
@@ -45,7 +46,7 @@ static bool is_up = true;
 void record_chart_timer_cb(lv_timer_t * t)
 {
     lv_obj_t * obj = t->user_data;
-//task_chart = lv_timer_create(record_chart_timer_cb, 100, guider_ui.record_chart_board);
+   task_chart = lv_timer_create(record_chart_timer_cb, 100, guider_ui.record_chart_board);
     lv_chart_series_t * ser = lv_chart_get_series_next(obj, NULL);
     lv_coord_t * ser_array = lv_chart_get_y_array(obj, ser);
 

@@ -18,6 +18,7 @@ extern "C" {
 void custom_init(lv_ui *ui);
 void speed_meter_timer_cb(lv_timer_t * t) ;
 void record_chart_timer_cb(lv_timer_t * t);
+void home_label_digit_animation(lv_ui *ui) ; 
 #ifdef __cplusplus
 }
 #endif

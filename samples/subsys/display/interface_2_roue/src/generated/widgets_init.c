@@ -1,5 +1,5 @@
 /*
-* Copyright 2024 NXP
+* Copyright 2025 NXP
 * NXP Proprietary. This software is owned or controlled by NXP and may only be used strictly in
 * accordance with the applicable license terms. By expressly accepting such terms or by downloading, installing,
 * activating and/or otherwise using the software, you are agreeing that you have read, and that you agree to
@@ -75,32 +75,4 @@ void clock_count(int *hour, int *min, int *sec)
 }
 #endif
 
-
-extern int Radio_digital_clock_1_hour_value;
-extern int Radio_digital_clock_1_min_value;
-extern int Radio_digital_clock_1_sec_value;
-extern char Radio_digital_clock_1_meridiem[];
-
-void Radio_digital_clock_1_timer(lv_timer_t *timer)
-{
-    clock_count_12(&Radio_digital_clock_1_hour_value, &Radio_digital_clock_1_min_value, &Radio_digital_clock_1_sec_value, Radio_digital_clock_1_meridiem);
-    if (lv_obj_is_valid(guider_ui.Radio_digital_clock_1))
-    {
-        lv_dclock_set_text_fmt(guider_ui.Radio_digital_clock_1, "%d:%02d:%02d %s", Radio_digital_clock_1_hour_value, Radio_digital_clock_1_min_value, Radio_digital_clock_1_sec_value, Radio_digital_clock_1_meridiem);
-    }
-}
-
-extern int screen_digital_clock_1_hour_value;
-extern int screen_digital_clock_1_min_value;
-extern int screen_digital_clock_1_sec_value;
-extern char screen_digital_clock_1_meridiem[];
-
-void screen_digital_clock_1_timer(lv_timer_t *timer)
-{
-    clock_count_12(&screen_digital_clock_1_hour_value, &screen_digital_clock_1_min_value, &screen_digital_clock_1_sec_value, screen_digital_clock_1_meridiem);
-    if (lv_obj_is_valid(guider_ui.screen_digital_clock_1))
-    {
-        lv_dclock_set_text_fmt(guider_ui.screen_digital_clock_1, "%d:%02d:%02d %s", screen_digital_clock_1_hour_value, screen_digital_clock_1_min_value, screen_digital_clock_1_sec_value, screen_digital_clock_1_meridiem);
-    }
-}
 

@@ -1,5 +1,5 @@
 /*
-* Copyright 2024 NXP
+* Copyright 2025 NXP
 * NXP Proprietary. This software is owned or controlled by NXP and may only be used strictly in
 * accordance with the applicable license terms. By expressly accepting such terms or by downloading, installing,
 * activating and/or otherwise using the software, you are agreeing that you have read, and that you agree to
@@ -17,9 +17,6 @@
 
 #include "custom.h"
 static lv_timer_t  * task_meter;
-
-
-
 static lv_timer_t * task_chart;
 
 static void Radio_slider_1_event_handler (lv_event_t *e)
@@ -96,11 +93,7 @@ static void screen_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_SCREEN_LOADED:
     {
-
-
         task_meter = lv_timer_create(speed_meter_timer_cb, 100, &guider_ui);
-
-        //lv_event_send(guider_ui.screen_cont_1, LV_EVENT_CLICKED, NULL);
         break;
     }
     case LV_EVENT_SCREEN_UNLOAD_START:
@@ -169,12 +162,12 @@ static void record_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_SCREEN_LOAD_START:
     {
-        task_chart = lv_timer_create(record_chart_timer_cb, 100, guider_ui.record_chart_board);
+        //task_chart = lv_timer_create(record_chart_timer_cb, 100, guider_ui.record_chart_board);
         break;
     }
     case LV_EVENT_SCREEN_UNLOAD_START:
     {
-        lv_timer_del(task_chart);
+        //lv_timer_del(task_chart);
         break;
     }
     default:
@@ -219,6 +212,25 @@ static void meteo_btn_1_event_handler (lv_event_t *e)
 void events_init_meteo (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->meteo_btn_1, meteo_btn_1_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void screen_1_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.meteo, guider_ui.meteo_del, &guider_ui.screen_1_del, setup_scr_meteo, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_screen_1 (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->screen_1_btn_1, screen_1_btn_1_event_handler, LV_EVENT_ALL, ui);
 }
 
 

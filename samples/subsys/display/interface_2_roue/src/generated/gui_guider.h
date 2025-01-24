@@ -1,5 +1,5 @@
 /*
-* Copyright 2024 NXP
+* Copyright 2025 NXP
 * NXP Proprietary. This software is owned or controlled by NXP and may only be used strictly in
 * accordance with the applicable license terms. By expressly accepting such terms or by downloading, installing,
 * activating and/or otherwise using the software, you are agreeing that you have read, and that you agree to
@@ -26,7 +26,6 @@ typedef struct
 	lv_obj_t *Radio_led_2;
 	lv_obj_t *Radio_led_1;
 	lv_obj_t *Radio_bar_1;
-	lv_obj_t *Radio_digital_clock_1;
 	lv_obj_t *Radio_spangroup_1;
 	lv_span_t *Radio_spangroup_1_span;
 	lv_obj_t *Radio_slider_1;
@@ -42,11 +41,10 @@ typedef struct
 	lv_meter_indicator_t *screen_meter_1_scale_0_arc_0;
 	lv_meter_indicator_t *screen_meter_1_scale_0_arc_1;
 	lv_meter_indicator_t *screen_meter_1_scale_0_arc_2;
-	lv_obj_t *screen_speed_label_digit;
+	lv_obj_t *screen_speed_label_digit1;
 	lv_obj_t *screen_label_2;
 	lv_obj_t *screen_label_1;
 	lv_obj_t *screen_cont_2;
-	lv_obj_t *screen_digital_clock_1;
 	lv_obj_t *screen_imgbtn_2;
 	lv_obj_t *screen_imgbtn_2_label;
 	lv_obj_t *screen_led_1;
@@ -64,6 +62,7 @@ typedef struct
 	lv_obj_t *screen_imgbtn_7_label;
 	lv_obj_t *screen_imgbtn_9;
 	lv_obj_t *screen_imgbtn_9_label;
+	lv_obj_t *screen_speed_label_digit;
 	lv_obj_t *record;
 	bool record_del;
 	lv_obj_t *record_btn_1;
@@ -88,6 +87,11 @@ typedef struct
 	lv_obj_t *meteo_btn_1_label;
 	lv_obj_t *screen_1;
 	bool screen_1_del;
+	lv_obj_t *screen_1_btn_1;
+	lv_obj_t *screen_1_btn_1_label;
+	lv_obj_t *screen_1_meter_1;
+	lv_meter_scale_t *screen_1_meter_1_scale_0;
+	lv_meter_indicator_t *screen_1_meter_1_scale_0_ndline_0;
 }lv_ui;
 
 typedef void (*ui_setup_scr_t)(lv_ui * ui);
@@ -124,6 +128,8 @@ LV_IMG_DECLARE(_menu_radio_637x291);
 LV_IMG_DECLARE(_play_301x301);
 
 LV_IMG_DECLARE(_abs_720x1280);
+
+LV_IMG_DECLARE(_kmbg_157x153);
 LV_IMG_DECLARE(_saaremovebgpreview_alpha_45x32);
 LV_IMG_DECLARE(_pngp_alpha_28x18);
 LV_IMG_DECLARE(_absas_alpha_80x77);
@@ -143,15 +149,18 @@ LV_IMG_DECLARE(_rainybg_alpha_83x75);
 LV_IMG_DECLARE(_abs_720x1280);
 
 LV_FONT_DECLARE(lv_font_montserratMedium_12)
-LV_FONT_DECLARE(lv_font_montserratMedium_26)
-LV_FONT_DECLARE(lv_font_montserratMedium_16)
 LV_FONT_DECLARE(lv_font_montserratMedium_27)
 LV_FONT_DECLARE(lv_font_montserratMedium_22)
+LV_FONT_DECLARE(lv_font_montserratMedium_16)
 LV_FONT_DECLARE(lv_font_montserratMedium_47)
 LV_FONT_DECLARE(lv_font_montserratMedium_23)
-LV_FONT_DECLARE(lv_font_montserratMedium_28)
+LV_FONT_DECLARE(lv_font_Antonio_Regular_22)
+LV_FONT_DECLARE(lv_font_Antonio_Regular_26)
+LV_FONT_DECLARE(lv_font_Antonio_Regular_20)
 LV_FONT_DECLARE(lv_font_montserratMedium_46)
 LV_FONT_DECLARE(lv_font_montserratMedium_105)
+LV_FONT_DECLARE(lv_font_montserratMedium_26)
+LV_FONT_DECLARE(lv_font_montserratMedium_28)
 
 
 #ifdef __cplusplus

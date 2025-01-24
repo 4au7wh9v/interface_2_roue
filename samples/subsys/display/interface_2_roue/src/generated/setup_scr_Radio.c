@@ -1,5 +1,5 @@
 /*
-* Copyright 2024 NXP
+* Copyright 2025 NXP
 * NXP Proprietary. This software is owned or controlled by NXP and may only be used strictly in
 * accordance with the applicable license terms. By expressly accepting such terms or by downloading, installing,
 * activating and/or otherwise using the software, you are agreeing that you have read, and that you agree to
@@ -16,10 +16,6 @@
 
 
 
-int Radio_digital_clock_1_min_value = 25;
-int Radio_digital_clock_1_hour_value = 11;
-int Radio_digital_clock_1_sec_value = 50;
-char Radio_digital_clock_1_meridiem[] = "AM";
 void setup_scr_Radio(lv_ui *ui)
 {
     //Write codes Radio
@@ -129,30 +125,6 @@ void setup_scr_Radio(lv_ui *ui)
     lv_obj_set_style_bg_grad_dir(ui->Radio_bar_1, LV_GRAD_DIR_NONE, LV_PART_INDICATOR|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->Radio_bar_1, 10, LV_PART_INDICATOR|LV_STATE_DEFAULT);
 
-    //Write codes Radio_digital_clock_1
-    static bool Radio_digital_clock_1_timer_enabled = false;
-    ui->Radio_digital_clock_1 = lv_dclock_create(ui->Radio_cont_1, "11:25:50 AM");
-    if (!Radio_digital_clock_1_timer_enabled) {
-        lv_timer_create(Radio_digital_clock_1_timer, 1000, NULL);
-        Radio_digital_clock_1_timer_enabled = true;
-    }
-    lv_obj_set_pos(ui->Radio_digital_clock_1, 475, 24);
-    lv_obj_set_size(ui->Radio_digital_clock_1, 164, 63);
-
-    //Write style for Radio_digital_clock_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_radius(ui->Radio_digital_clock_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(ui->Radio_digital_clock_1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->Radio_digital_clock_1, &lv_font_montserratMedium_26, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui->Radio_digital_clock_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_letter_space(ui->Radio_digital_clock_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_align(ui->Radio_digital_clock_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui->Radio_digital_clock_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_top(ui->Radio_digital_clock_1, 7, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_right(ui->Radio_digital_clock_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_bottom(ui->Radio_digital_clock_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_left(ui->Radio_digital_clock_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->Radio_digital_clock_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-
     //Write codes Radio_spangroup_1
     ui->Radio_spangroup_1 = lv_spangroup_create(ui->Radio);
     lv_spangroup_set_align(ui->Radio_spangroup_1, LV_TEXT_ALIGN_LEFT);
@@ -169,7 +141,7 @@ void setup_scr_Radio(lv_ui *ui)
     lv_style_set_text_color(&ui->Radio_spangroup_1_span->style, lv_color_hex(0x000000));
     lv_style_set_text_decor(&ui->Radio_spangroup_1_span->style, LV_TEXT_DECOR_NONE);
     lv_style_set_text_font(&ui->Radio_spangroup_1_span->style, &lv_font_montserratMedium_22);
-    lv_obj_set_pos(ui->Radio_spangroup_1, 240, 274);
+    lv_obj_set_pos(ui->Radio_spangroup_1, 267, 237);
     lv_obj_set_size(ui->Radio_spangroup_1, 443, 98);
 
     //Write style state: LV_STATE_DEFAULT for &style_Radio_spangroup_1_main_main_default
